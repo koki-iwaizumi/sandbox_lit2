@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, Text } from "@koki-iwaizumi/lit-element-starter-ts";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button
+        name="Add"
+        onClickButton={(e) => {
+          console.log("ボタンが押されました", e);
+          setCount(count + 1);
+        }}
+      />
+      <Text value={"" + count} />
     </div>
   );
 }
